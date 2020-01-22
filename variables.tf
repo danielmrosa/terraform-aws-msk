@@ -16,7 +16,7 @@ variable "zup_network_public" {
 variable  "ami" {
     type    = "map"
     default = {
-        default    = "ami-04590e7389a6e577c"
+        default    = "ami-0931e7420c912892b"
     }
 }
 

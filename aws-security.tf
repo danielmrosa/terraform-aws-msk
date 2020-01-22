@@ -30,6 +30,13 @@ resource "aws_security_group" "aws-msk" {
     protocol        = "tcp"
     cidr_blocks = ["${local.workstation-external-cidr}"]
     description     = "SSH"
+  }
+   egress {
+    from_port   = 0
+    protocol    = "-1"
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
+
   } 
   tags = {
     Name = "Msk"
@@ -82,7 +89,13 @@ resource "aws_security_group" "kafka" {
     protocol        = "tcp"
     cidr_blocks = ["${local.workstation-external-cidr}"]
     description     = "Grafana"
-  } 
+  }
+   egress {
+    from_port   = 0
+    protocol    = "-1"
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   tags = {
     Name = "Kafka"
   }

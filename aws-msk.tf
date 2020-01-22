@@ -6,7 +6,7 @@ resource "aws_msk_cluster" "kafka" {
 
   broker_node_group_info {
     instance_type  = "kafka.m5.large"
-    ebs_volume_size = "10"
+    ebs_volume_size = "100"
     client_subnets = [
       "${aws_subnet.aws-subnets-public.0.id}",
       "${aws_subnet.aws-subnets-public.2.id}"
@@ -27,7 +27,7 @@ resource "aws_msk_cluster" "kafka" {
 }
 
 resource "aws_msk_configuration" "kafka" {
-  name = "kafka-cfg-2"
+  name = "kafka-cfg-22-01"
   kafka_versions = ["2.3.1"]
   server_properties = <<PROPERTIES
 auto.create.topics.enable = false
